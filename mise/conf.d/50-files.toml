@@ -1,17 +1,13 @@
 [dotfiles]
-"~/.config/fish/config.fish" = "../../dotfiles/fish/config.fish"
-
-"~/.config/fish/conf.d/aliases.fish" = "../../dotfiles/fish/conf.d/aliases.fish"
-"~/.config/fish/conf.d/path.fish" = "../../dotfiles/fish/conf.d/path.fish"
-"~/.config/fish/conf.d/set.fish" = "../../dotfiles/fish/conf.d/set.fish"
-
-"~/.config/fish/functions/reload.fish" = "../../dotfiles/fish/functions/reload.fish"
-
-"~/.config/atuin/config.toml" = "../../dotfiles/atuin/config.toml"
-"~/.config/starship/config.toml" = "../../dotfiles/starship/config.toml"
-"~/.config/eza/theme.yml" = "../../dotfiles/eza/theme.yml"
-"~/.config/bat/config" = "../../dotfiles/bat/config"
-
+"
+"~/.config/starship.toml" = "../../dotfiles/starship.toml"
+"~/.config/eza" = "../../dotfiles/eza"
+"~/.config/topgrade.toml" = "../../dotfiles/topgrade/topgrade.toml"
+"~/.config/superfile" = "../../dotfiles/superfile"
+"~/.config/nvim" = "../../dotfiles/nvim"
+"~/.config/fish" = "../../dotfiles/fish"
+"~/.config/atuin" = "../../dotfiles/atuin"
+"~/.config/bat" = "../../dotfiles/bat"
 
 ## Sudo
 [bootstrap.files."/etc/sudoers.d/sander"]

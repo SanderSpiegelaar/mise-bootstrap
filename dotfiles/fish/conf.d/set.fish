@@ -19,3 +19,5 @@ set -g fish_color_search_match 'bryellow'  '--background=brblack'
 set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
+
+set -q EDITOR; or set -gx EDITOR nvim

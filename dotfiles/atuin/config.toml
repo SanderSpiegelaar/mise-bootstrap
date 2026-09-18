@@ -29,6 +29,9 @@ columns = ["time", "directory", "command"]
 [sync]
 records = true
 
+[theme]
+name = "catppuccin-macchiato-blue"
+
 [daemon]
 
 [stats]
