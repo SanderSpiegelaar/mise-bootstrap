@@ -1,0 +1,58 @@
+# Include any additional configuration file(s)
+# [include] sections are processed in the order you write them
+# Files in $CONFIG_DIR/topgrade.d/ are automatically included before this file
+[include]
+# paths = ["/etc/topgrade.toml"]
+
+
+[misc]
+allow_root = true
+pre_sudo = true
+sudo_command = "sudo"
+assume_yes = true
+no_retry = true
+cleanup = true
+
+
+[brew]
+greedy_cask = true
+greedy_latest = true
+greedy_auto_updates = true
+
+# For the BrewFormula step
+# Execute `brew autoremove` after the step.
+autoremove = true
+
+[mise]
+# Upgrades to the latest version available, bumping the version in mise.toml
+# (default: false)
+bump = false
+
+# Number of jobs to run in parallel (mise's default)
+# jobs = 8
+
+# Run interactively
+# (default: false)
+# interactive = false
+
+# Suppress non-error messages
+# (default: false)
+# quiet = false
+
+# Suppress all task output and mise non-error messages
+# (default: false)
+# silent = false
+
+# Show extra output
+# (default: false)
+# verbose = false
+
+
+[firmware]
+# Offer to update firmware; if false just check for and display available updates
+upgrade = true
+
+[containers]
+runtime = "docker"
+
+system_prune = true

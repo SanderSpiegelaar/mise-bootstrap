@@ -9,6 +9,10 @@
 
 "~/.config/atuin/config.toml" = "../../dotfiles/atuin/config.toml"
 "~/.config/starship/config.toml" = "../../dotfiles/starship/config.toml"
+"~/.config/eza/theme.yml" = "../../dotfiles/eza/theme.yml"
+"~/.config/bat/config" = "../../dotfiles/bat/config"
+
+
 ## Sudo
 [bootstrap.files."/etc/sudoers.d/sander"]
 source = "../../files/sudoers/sander"

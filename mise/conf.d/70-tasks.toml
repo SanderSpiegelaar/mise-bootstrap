@@ -3,4 +3,5 @@ run = [
   "./scripts/install-fisher.fish",
   "git config --global user.name 'Sander'",
   "git config --global user.email 'sanderspiegelaar@gmail.com'",
+  "brew install httpie",
 ]
