@@ -14,3 +14,5 @@
 "apt:containerd.io" = "latest"
 "apt:docker-buildx-plugin" = "latest"
 "apt:docker-compose-plugin" = "latest"
+
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"

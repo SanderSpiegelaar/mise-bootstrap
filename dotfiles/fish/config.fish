@@ -12,4 +12,6 @@
           command -q starship; and starship init fish | source
           command -q zoxide; and zoxide init fish | source
           command -q fnox; and fnox activate fish | source
+
+          source ~/.config/fish/aliases.fish
       end

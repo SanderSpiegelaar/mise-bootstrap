@@ -4,5 +4,4 @@ run = [
   "git config --global user.name 'Sander'",
   "git config --global user.email 'sanderspiegelaar@gmail.com'",
   "brew install httpie",
-  "brew-cask:font-jetbrains-mono-nerd-font" = "latest"
 ]

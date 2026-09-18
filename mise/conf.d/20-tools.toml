@@ -1,5 +1,6 @@
 [tools]
-tree-sitter = "latest":::qqiIIatuin = "latest"
+tree-sitter = "latest"
+atuin = "latest"
 bat = "latest"
 bun = "latest"
 codex = "latest"

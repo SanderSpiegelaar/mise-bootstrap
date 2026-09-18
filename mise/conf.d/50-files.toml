@@ -1,8 +1,8 @@
 [dotfiles]
-"
 "~/.config/starship.toml" = "../../dotfiles/starship.toml"
+"~/.config/topgrade.toml" = "../../dotfiles/topgrade.toml"
+
 "~/.config/eza" = "../../dotfiles/eza"
-"~/.config/topgrade.toml" = "../../dotfiles/topgrade/topgrade.toml"
 "~/.config/superfile" = "../../dotfiles/superfile"
 "~/.config/nvim" = "../../dotfiles/nvim"
 "~/.config/fish" = "../../dotfiles/fish"
