@@ -61,3 +61,23 @@ source = "../../files/sysctl/99-custom.conf"
 owner = "root"
 group = "root"
 mode = "0644"
+
+[bootstrap.files."/etc/needrestart/conf.d/99-restart.conf"]
+content = "$nrconf{restart} = 'a';\n"
+owner = "root"
+group = "root"
+mode = "0644"
+phase = "pre-packages"
+
+[bootstrap.directories."/home/sander/.ssh"]
+owner = "sander"
+group = "sander"
+mode = "0700"
+
+[bootstrap.files."/home/sander/.ssh/authorized_keys"]
+content = """
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNjFhghHAGi7Y6BJu9RxQWHNUChrVD81EfnHxAfZRqX hetzner
+"""
+owner = "sander"
+group = "sander"
+mode = "0600"

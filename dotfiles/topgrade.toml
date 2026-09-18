@@ -15,12 +15,6 @@ cleanup = true
 
 
 [brew]
-greedy_cask = true
-greedy_latest = true
-greedy_auto_updates = true
-
-# For the BrewFormula step
-# Execute `brew autoremove` after the step.
 autoremove = true
 
 [mise]
@@ -54,5 +48,3 @@ upgrade = true
 
 [containers]
 runtime = "docker"
-
-system_prune = true

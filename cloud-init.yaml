@@ -1,5 +1,4 @@
 #cloud-config
-
 package_update: true
 package_upgrade: true
 package_reboot_if_required: true
@@ -7,7 +6,6 @@ package_reboot_if_required: true
 disable_root: true
 ssh_pwauth: false
 timezone: Europe/Amsterdam
-
 users:
   - name: sander
     groups:
@@ -15,34 +13,8 @@ users:
       - sudo
     sudo:
       - ALL=(ALL) NOPASSWD:ALL
-    shell: /usr/bin/fish
-    ssh_authorized_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNjFhghHAGi7Y6BJu9RxQWHNUChrVD81EfnHxAfZRqX hetzner
 
 runcmd:
-  # Automatically restart services after package upgrades
-
-  - sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
-  # Apply sysctl configuration
-  - sysctl --system
-
-  # Secure shared memory
-  - echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" >> /etc/fstab
-
-  # Enable services
-  - systemctl enable --now unattended-upgrades
-  - systemctl enable --now fail2ban
-  - systemctl enable --now docker
-
-  - sudo -u sander -H env NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  - sudo -u sander -H /home/linuxbrew/.linuxbrew/bin/brew --version
-
   - sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
   - sudo -u sander -H /home/sander/.local/bin/mise --version
   - sudo -u sander -H /home/sander/.local/bin/mise bootstrap --from https://github.com/SanderSpiegelaar/mise-bootstrap.git --update --yes
-
-  # Validate SSH configuration before restarting
-  - sshd -t
-
-  # Apply SSH configuration
-  - systemctl restart ssh

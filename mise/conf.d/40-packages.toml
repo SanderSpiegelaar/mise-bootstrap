@@ -8,7 +8,8 @@
 "apt:procps" = "latest"
 "apt:file" = "latest"
 "apt:git" = "latest"
-
+"apt:man-db" = "latest"
+"apt:needrestart" = "latest"
 "apt:docker-ce" = "latest"
 "apt:docker-ce-cli" = "latest"
 "apt:containerd.io" = "latest"
@@ -16,3 +17,4 @@
 "apt:docker-compose-plugin" = "latest"
 
 "brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew:httpie" = "latest"
