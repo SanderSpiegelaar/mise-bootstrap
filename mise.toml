@@ -1,0 +1,32 @@
+[settings]
+minimum_release_age = "8h"
+experimental = true
+
+[tools]
+node = "26"
+bun = "latest"
+codex = "latest"
+atuin = "latest"
+bat = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+ripgrep = "latest"
+starship = "latest"
+tmux = "latest"
+zoxide = "latest"
+lazydocker = "latest"
+lazygit = "latest"
+lazyjournal = "latest"
+usage = "latest"
+topgrade = "latest"
+
+[bootstrap.mise_shell_activate]
+fish = "activate"
+
+
+[bootstrap.packages]
+"apt:build-essential" = "latest"
+"apt:procps" = "latest"
+"apt:file" = "latest"
