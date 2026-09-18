@@ -1,0 +1,16 @@
+[bootstrap.packages]
+"apt:fish" = "latest"
+"apt:fail2ban" = "latest"
+"apt:unattended-upgrades" = "latest"
+"apt:curl" = "latest"
+"apt:ca-certificates" = "latest"
+"apt:build-essential" = "latest"
+"apt:procps" = "latest"
+"apt:file" = "latest"
+"apt:git" = "latest"
+
+"apt:docker-ce" = "latest"
+"apt:docker-ce-cli" = "latest"
+"apt:containerd.io" = "latest"
+"apt:docker-buildx-plugin" = "latest"
+"apt:docker-compose-plugin" = "latest"

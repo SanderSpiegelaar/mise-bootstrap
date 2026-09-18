@@ -1,0 +1,63 @@
+[dotfiles]
+"~/.config/fish/config.fish" = "dotfiles/fish/config.fish"
+"~/.config/fish/conf.d/aliases.fish" = "dotfiles/fish/conf.d/aliases.fish"
+"~/.config/fish/conf.d/path.fish" = "dotfiles/fish/conf.d/path.fish"
+"~/.config/fish/conf.d/set.fish" = "dotfiles/fish/conf.d/set.fish"
+"~/.config/fish/functions/reload.fish" = "dotfiles/fish/functions/reload.fish"
+
+"~/.config/atuin/config.toml" = "dotfiles/atuin/config.toml"
+"~/.config/starship/config.toml" = "dotfiles/starship/config.toml"
+
+
+## Docker
+[bootstrap.directories."/etc/apt/keyrings"]
+owner = "root"
+group = "root"
+mode = "0755"
+phase = "pre-packages"
+
+[bootstrap.files."/etc/apt/keyrings/docker.asc"]
+source = "./files/docker/docker.asc"
+owner = "root"
+group = "root"
+mode = "0644"
+phase = "pre-packages"
+
+[bootstrap.files."/etc/apt/sources.list.d/docker.sources"]
+source = "./files/docker/docker.sources"
+owner = "root"
+group = "root"
+mode = "0644"
+phase = "pre-packages"
+
+[bootstrap.files."/etc/apt/keyrings/docker.asc"]
+source = "./files/docker.asc"
+owner = "root"
+group = "root"
+mode = "0644"
+phase = "pre-packages"
+
+[bootstrap.files."/etc/docker/daemon.json"]
+content = '{ "log-driver": "local" }'
+notify = ["docker"]
+
+## Fail2Ban
+[bootstrap.files."/etc/fail2ban/jail.local"]
+source = "./files/fail2ban/jail.local"
+owner = "root"
+group = "root"
+mode = "0644"
+notify = ["fail2ban"]
+
+## SSH
+[bootstrap.files."/etc/ssh/sshd_config.d/99-hardening.conf"]
+source = "./files/ssh/99-hardening.conf"
+owner = "root"
+group = "root"
+mode = "0644"
+
+[bootstrap.files."/etc/sysctl.d/99-custom.conf"]
+source = "./files/sysctl/99-custom.conf"
+owner = "root"
+group = "root"
+mode = "0644"

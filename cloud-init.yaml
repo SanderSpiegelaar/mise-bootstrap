@@ -1,0 +1,114 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+
+disable_root: true
+ssh_pwauth: false
+timezone: Europe/Amsterdam
+
+packages:
+  - fish
+  - fail2ban
+  - unattended-upgrades
+  - curl
+  - ca-certificates
+  - git
+
+users:
+  - name: sander
+    groups:
+      - users
+      - sudo
+    sudo:
+      - ALL=(ALL) NOPASSWD:ALL
+    shell: /usr/bin/fish
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNjFhghHAGi7Y6BJu9RxQWHNUChrVD81EfnHxAfZRqX hetzner
+
+write_files:
+  - path: /etc/ssh/sshd_config.d/99-hardening.conf
+    owner: root:root
+    permissions: "0644"
+    content: |
+      PermitRootLogin no
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      ChallengeResponseAuthentication no
+      Port 2222
+      MaxAuthTries 2
+      AllowTcpForwarding no
+      X11Forwarding no
+      AllowAgentForwarding no
+      AllowUsers sander
+
+  - path: /etc/fail2ban/jail.local
+    owner: root:root
+    permissions: "0644"
+    content: |
+      [sshd]
+      enabled = true
+      port = 2222
+      banaction = iptables-multiport
+
+  - path: /etc/sysctl.d/99-custom.conf
+    owner: root:root
+    permissions: "0644"
+    content: |
+      vm.overcommit_memory = 1
+
+runcmd:
+  # Automatically restart services after package upgrades
+  - sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+
+  # Add Docker's official GPG key
+  - install -m 0755 -d /etc/apt/keyrings
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  - chmod a+r /etc/apt/keyrings/docker.asc
+
+  # Add Docker's official apt repository
+  - |
+    . /etc/os-release
+    ARCH="$(dpkg --print-architecture)"
+    CODENAME="${UBUNTU_CODENAME:-$VERSION_CODENAME}"
+
+    cat > /etc/apt/sources.list.d/docker.sources <<EOF
+    Types: deb
+    URIs: https://download.docker.com/linux/ubuntu
+    Suites: ${CODENAME}
+    Components: stable
+    Architectures: ${ARCH}
+    Signed-By: /etc/apt/keyrings/docker.asc
+    EOF
+
+  # Install Docker Engine + official plugins
+  - apt-get update
+  - apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+  # Allow sander to use Docker without sudo
+  - usermod -aG docker sander
+
+  # Apply sysctl configuration
+  - sysctl --system
+
+  # Secure shared memory
+  - echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" >> /etc/fstab
+
+  # Enable services
+  - systemctl enable --now unattended-upgrades
+  - systemctl enable --now fail2ban
+  - systemctl enable --now docker
+
+  - sudo -u sander -H env NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  - sudo -u sander -H /home/linuxbrew/.linuxbrew/bin/brew --version
+
+  - sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
+  - sudo -u sander -H /home/sander/.local/bin/mise --version
+  - sudo -u sander -H /home/sander/.local/bin/mise bootstrap --from https://github.com/SanderSpiegelaar/mise-bootstrap.git --yes
+
+  # Validate SSH configuration before restarting
+  - sshd -t
+
+  # Apply SSH configuration
+  - systemctl restart ssh

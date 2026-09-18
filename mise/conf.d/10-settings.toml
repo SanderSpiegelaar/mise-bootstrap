@@ -1,0 +1,6 @@
+[settings]
+minimum_release_age = "8h"
+experimental = true
+
+[bootstrap.mise_shell_activate]
+fish = "activate"

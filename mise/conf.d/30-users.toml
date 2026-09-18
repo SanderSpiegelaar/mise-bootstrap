@@ -1,0 +1,10 @@
+[bootstrap.groups.sander]
+
+[bootstrap.groups.docker]
+
+[bootstrap.users.sander]
+group = "sander"
+groups = ["sudo", "docker"]
+home = "/home/sander"
+shell = "/usr/bin/fish"
+create_home = true

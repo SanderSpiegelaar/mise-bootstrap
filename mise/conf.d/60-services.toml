@@ -1,0 +1,12 @@
+[bootstrap.services.docker]
+state = "running"
+enabled = true
+on_change = "reload_or_restart"
+
+[bootstrap.services.fail2ban]
+state = "running"
+enabled = true
+
+[bootstrap.services.unattended-upgrades]
+state = "running"
+enabled = true
