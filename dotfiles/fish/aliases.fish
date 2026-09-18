@@ -24,6 +24,8 @@
       alias rl='reload'
       alias cl='clear'
 
+      alias du='dust'
+
       alias falias='$EDITOR ~/.config/fish/conf.d/aliases.fish'
       alias fishconf='$EDITOR ~/.config/fish/config.fish'
       alias editconf='fishconf'

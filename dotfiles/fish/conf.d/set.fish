@@ -23,3 +23,4 @@ set -g fish_color_valid_path --underline
 set -q EDITOR; or set -gx EDITOR nvim
 set -g fzf_preview_dir_cmd eza --all --color=always
 set -q VISUAL; or set -gx VISUAL $EDITOR
+set fish_greeting ""

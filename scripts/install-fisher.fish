@@ -10,4 +10,5 @@ fisher install \
     PatrickF1/fzf.fish \
     jorgebucaran/autopair.fish \
     nickeb96/puffer-fish \
-    gazorby/fish-abbreviation-tips
+    gazorby/fish-abbreviation-tips \
+    fisher install icezyclon/zoxide.fish
