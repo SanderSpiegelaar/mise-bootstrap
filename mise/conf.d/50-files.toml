@@ -9,6 +9,8 @@
 "~/.config/atuin" = "../../dotfiles/atuin"
 "~/.config/bat" = "../../dotfiles/bat"
 
+"~/.config/mise/conf.d/20-tools.toml" = "./20-tools.toml"
+
 ## Sudo
 [bootstrap.files."/etc/sudoers.d/sander"]
 source = "../../files/sudoers/sander"
