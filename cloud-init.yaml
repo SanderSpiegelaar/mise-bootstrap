@@ -14,19 +14,18 @@ users:
       - sudo
     sudo:
       - ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNjFhghHAGi7Y6BJu9RxQWHNUChrVD81EfnHxAfZRqX hetzner
 
 runcmd:
-  - |
-    set -eu
+  # Install mise for sander
+  - sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
 
-    sudo -u sander -H sh -c '
-      set -eu
-      curl -fsSL https://mise.run -o /tmp/install-mise-sander.sh
-      sh /tmp/install-mise-sander.sh
-      rm /tmp/install-mise-sander.sh
-    '
+  # Verify mise installation
+  - sudo -u sander -H /home/sander/.local/bin/mise --version
 
-    sudo -u sander -H /home/sander/.local/bin/mise bootstrap \
-      --from https://github.com/SanderSpiegelaar/mise-bootstrap.git \
-      --update \
-      --yes
+  # Bootstrap configuration from repository
+  - sudo -u sander -H /home/sander/.local/bin/mise bootstrap \
+    --from https://github.com/YOUR_USERNAME/mise-bootstrap.git \
+    --update \
+    --yes

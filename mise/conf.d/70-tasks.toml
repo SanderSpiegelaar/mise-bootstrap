@@ -1,12 +1,4 @@
 [tasks.bootstrap]
-run = [
-  "./scripts/install-fisher.fish",
-  "git config --global user.name 'Sander'",
-  "git config --global user.email 'sanderspiegelaar@gmail.com'",
-]
-
-
-[tasks.bootstrap]
 description = "Finish user and system setup"
 dir = "{{ config_root }}/../.."
 run = [
