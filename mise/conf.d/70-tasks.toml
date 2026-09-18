@@ -3,6 +3,7 @@ description = "Finish user and system setup"
 dir = "{{ config_root }}"
 run = [
   "fish scripts/install-fisher.fish",
+  "fish scripts/generate-completions.fish",
   "git config --global user.name 'Sander'",
   "git config --global user.email 'sanderspiegelaar@gmail.com'",
   "tldr --update",
