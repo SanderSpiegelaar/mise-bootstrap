@@ -6,6 +6,7 @@ package_reboot_if_required: true
 disable_root: true
 ssh_pwauth: false
 timezone: Europe/Amsterdam
+
 users:
   - name: sander
     groups:
@@ -15,6 +16,17 @@ users:
       - ALL=(ALL) NOPASSWD:ALL
 
 runcmd:
-  - sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
-  - sudo -u sander -H /home/sander/.local/bin/mise --version
-  - sudo -u sander -H /home/sander/.local/bin/mise bootstrap --from https://github.com/SanderSpiegelaar/mise-bootstrap.git --update --yes
+  - |
+    set -eu
+
+    sudo -u sander -H sh -c '
+      set -eu
+      curl -fsSL https://mise.run -o /tmp/install-mise-sander.sh
+      sh /tmp/install-mise-sander.sh
+      rm /tmp/install-mise-sander.sh
+    '
+
+    sudo -u sander -H /home/sander/.local/bin/mise bootstrap \
+      --from https://github.com/SanderSpiegelaar/mise-bootstrap.git \
+      --update \
+      --yes
