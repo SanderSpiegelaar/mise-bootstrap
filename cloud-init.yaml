@@ -18,11 +18,10 @@ users:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNjFhghHAGi7Y6BJu9RxQWHNUChrVD81EfnHxAfZRqX hetzner
 
 runcmd:
-  # Install mise for sander
-  - sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
-
-  # Bootstrap configuration from repository
-  - sudo -u sander -H /home/sander/.local/bin/mise bootstrap \
-    --from https://github.com/SanderSpiegelaar/mise-bootstrap.git \
-    --update \
-    --yes
+  - |
+    set -eu
+    sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
+    sudo -u sander -H /home/sander/.local/bin/mise bootstrap \
+      --from https://github.com/SanderSpiegelaar/mise-bootstrap.git \
+      --update \
+      --yes
