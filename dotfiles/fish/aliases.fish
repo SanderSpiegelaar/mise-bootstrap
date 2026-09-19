@@ -24,7 +24,7 @@ command -q nvim; and alias nv='nvim'
 
 alias cd='z'
 alias cdi='zi'
-alias rl='reload'
+alias rl='exec fish'
 alias cl='clear'
 
 alias du='dust'
