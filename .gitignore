@@ -1,2 +1,10 @@
-/dotfiles/fish/fish_variables
-/dotfiles/fish/completions/*.fish.*
+dotfiles/fish/fish_variables
+dotfiles/fish/fish_plugins
+dotfiles/fish/completions/
+
+dotfiles/fish/conf.d/*
+!dotfiles/fish/conf.d/custom
+!dotfiles/fish/conf.d/set.fish
+
+dotfiles/fish/functions/*
+!dotfiles/fish/functions/custom/

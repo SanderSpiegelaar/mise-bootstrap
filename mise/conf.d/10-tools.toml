@@ -1,5 +1,7 @@
 [tools]
 "aqua:dalance/procs" = "latest"
+agent-browser = "latest"
+ast-grep = "latest"
 atuin = "latest"
 bat = "latest"
 bun = "latest"
@@ -11,12 +13,16 @@ eza = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
+glow = "latest"
 jq = "latest"
+killport = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lazyjournal = "latest"
 neovim = "latest"
 node = "26"
+oxfmt = "latest"
+oxlint = "latest"
 ripgrep = "latest"
 starship = "latest"
 superfile = "latest"
@@ -29,3 +35,8 @@ uv = "latest"
 yq = "latest"
 zoxide = "latest"
 fx = "latest"
+
+fnox = { version = "latest", os = ["macos"] }
+lazyssh = { version = "latest", os = ["macos"] }
+"npm:fallow" = { version = "latest", os = ["macos"] }
+portless = { version = "latest", os = ["macos"] }

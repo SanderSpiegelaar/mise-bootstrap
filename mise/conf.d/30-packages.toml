@@ -1,0 +1,20 @@
+[bootstrap.packages]
+"apt:fish" = { version = "latest", os = ["linux"] }
+"apt:fail2ban" = { version = "latest", os = ["linux"] }
+"apt:unattended-upgrades" = { version = "latest", os = ["linux"] }
+"apt:curl" = { version = "latest", os = ["linux"] }
+"apt:ca-certificates" = { version = "latest", os = ["linux"] }
+"apt:build-essential" = { version = "latest", os = ["linux"] }
+"apt:procps" = { version = "latest", os = ["linux"] }
+"apt:file" = { version = "latest", os = ["linux"] }
+"apt:git" = { version = "latest", os = ["linux"] }
+"apt:man-db" = { version = "latest", os = ["linux"] }
+"apt:needrestart" = { version = "latest", os = ["linux"] }
+"apt:docker-ce" = { version = "latest", os = ["linux"] }
+"apt:docker-ce-cli" = { version = "latest", os = ["linux"] }
+"apt:containerd.io" = { version = "latest", os = ["linux"] }
+"apt:docker-buildx-plugin" = { version = "latest", os = ["linux"] }
+"apt:docker-compose-plugin" = { version = "latest", os = ["linux"] }
+
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew:httpie" = "latest"

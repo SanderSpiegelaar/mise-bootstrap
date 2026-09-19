@@ -53,6 +53,9 @@ truncate_to_repo = false
 home_symbol = "~"
 read_only = '🔒'
 
+[hostname]
+format = "[$hostname]($style) "
+style = "bold blue"
 
 [git_branch]
 symbol = " "

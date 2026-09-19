@@ -7,6 +7,4 @@ run = [
   "git config --global user.name 'Sander'",
   "git config --global user.email 'sanderspiegelaar@gmail.com'",
   "tldr --update",
-  "sudo sysctl --system",
-  "sudo /usr/sbin/sshd -t && sudo systemctl reload ssh",
 ]

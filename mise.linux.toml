@@ -1,17 +1,22 @@
-[dotfiles]
-"~/.config/starship.toml" = "../../dotfiles/starship.toml"
-"~/.config/topgrade.toml" = "../../dotfiles/topgrade.toml"
 
-"~/.config/eza" = "../../dotfiles/eza"
-"~/.config/superfile" = "../../dotfiles/superfile"
-"~/.config/nvim" = "../../dotfiles/nvim"
-"~/.config/fish" = "../../dotfiles/fish"
-"~/.config/atuin" = "../../dotfiles/atuin"
-"~/.config/bat" = "../../dotfiles/bat"
+[bootstrap.groups.sander]
 
-"~/.config/mise/conf.d/20-tools.toml" = "./20-tools.toml"
+[bootstrap.groups.docker]
 
-## Sudo
+[bootstrap.users.sander]
+group = "sander"
+groups = ["sudo", "docker"]
+home = "/home/sander"
+shell = "/usr/bin/fish"
+create_home = true
+
+[bootstrap.files."/etc/sudoers.d/sander"]
+source = "./files/sudoers/sander"
+owner = "root"
+group = "root"
+mode = "0440"
+
+# Sudo
 [bootstrap.files."/etc/sudoers.d/sander"]
 source = "../../files/sudoers/sander"
 owner = "root"
@@ -83,3 +88,16 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNjFhghHAGi7Y6BJu9RxQWHNUChrVD81EfnHxAfZRqX
 owner = "sander"
 group = "sander"
 mode = "0600"
+
+[tasks.bootstrap]
+description = "Finish user and system setup"
+dir = "{{ config_root }}"
+run = [
+  "fish scripts/install-fisher.fish",
+  "fish scripts/generate-completions.fish",
+  "git config --global user.name 'Sander'",
+  "git config --global user.email 'sanderspiegelaar@gmail.com'",
+  "tldr --update",
+  "sudo sysctl --system",
+  "sudo /usr/sbin/sshd -t && sudo systemctl reload ssh",
+]

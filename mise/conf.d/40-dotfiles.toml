@@ -1,0 +1,10 @@
+[dotfiles]
+"~/.config/starship.toml" = "../../dotfiles/starship.toml"
+"~/.config/topgrade.toml" = "../../dotfiles/topgrade.toml"
+
+"~/.config/eza" = "../../dotfiles/eza"
+"~/.config/superfile" = "../../dotfiles/superfile"
+"~/.config/nvim" = "../../dotfiles/nvim"
+"~/.config/fish" = "../../dotfiles/fish"
+"~/.config/atuin" = "../../dotfiles/atuin"
+"~/.config/bat" = "../../dotfiles/bat"
