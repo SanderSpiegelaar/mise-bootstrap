@@ -29,3 +29,10 @@ set -gx fish_color_search_match 'bryellow'  '--background=brblack'
 set -gx fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -gx fish_color_user brgreen
 set -gx fish_color_valid_path --underline
+
+set -Ux FZF_DEFAULT_OPTS "\
+--color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
+--color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
+--color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
+--color=selected-bg:#494D64 \
+--color=border:#6E738D,label:#CAD3F5"

@@ -1,6 +1,6 @@
 dotfiles/fish/fish_variables
 dotfiles/fish/fish_plugins
-dotfiles/fish/completions/
+dotfiles/fish/completions/*
 
 dotfiles/fish/conf.d/*
 !dotfiles/fish/conf.d/custom
