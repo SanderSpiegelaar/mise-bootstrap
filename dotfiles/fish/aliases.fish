@@ -15,6 +15,7 @@ end
 
 command -q lazysql; and alias lsql='lazysql'
 command -q lazyssh; and alias lssh='lazyssh'
+command -q lazydocker; and alias ld='lazydocker'
 command -q cursor; and alias code='cursor'
 
 command -q docker; and alias dcu='docker compose up -d'
