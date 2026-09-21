@@ -22,6 +22,7 @@ runcmd:
     set -eu
     sudo -u sander -H sh -c 'curl -fsSL https://mise.run | sh'
     sudo -u sander -H /home/sander/.local/bin/mise bootstrap \
+      --env linux \
       --from https://github.com/SanderSpiegelaar/mise-bootstrap.git \
       --update \
       --yes

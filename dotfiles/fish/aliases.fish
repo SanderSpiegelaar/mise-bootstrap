@@ -32,6 +32,9 @@ alias du='dust'
 
 alias fc='fish_clipboard_copy'
 
+alias env-compose-parse='compose-env'
+alias env-parse-coolify=
+
 alias falias='$EDITOR ~/.config/fish/conf.d/aliases.fish'
 alias fishconf='$EDITOR ~/.config/fish/config.fish'
 alias editconf='fishconf'
